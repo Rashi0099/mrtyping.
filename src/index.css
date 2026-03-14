@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 6% 10%;
+    --foreground: 40 20% 90%;
+
+    --card: 240 5% 13%;
+    --card-foreground: 40 20% 90%;
+
+    --popover: 240 5% 13%;
+    --popover-foreground: 40 20% 90%;
+
+    --primary: 35 30% 72%;
+    --primary-foreground: 240 6% 10%;
+
+    --secondary: 240 4% 18%;
+    --secondary-foreground: 40 15% 80%;
+
+    --muted: 240 4% 18%;
+    --muted-foreground: 240 5% 45%;
+
+    --accent: 35 40% 60%;
+    --accent-foreground: 240 6% 10%;
+
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 142 50% 55%;
+    --success-foreground: 142 50% 90%;
+
+    --border: 240 4% 20%;
+    --input: 240 4% 20%;
+    --ring: 35 30% 72%;
+
+    --radius: 0.75rem;
+
+    --typing-correct: 40 15% 80%;
+    --typing-incorrect: 0 72% 55%;
+    --typing-pending: 240 5% 35%;
+    --typing-cursor: 35 40% 65%;
+
+    --sidebar-background: 240 6% 10%;
+    --sidebar-foreground: 40 20% 90%;
+    --sidebar-primary: 35 30% 72%;
+    --sidebar-primary-foreground: 240 6% 10%;
+    --sidebar-accent: 240 4% 18%;
+    --sidebar-accent-foreground: 40 20% 90%;
+    --sidebar-border: 240 4% 20%;
+    --sidebar-ring: 35 30% 72%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+@layer components {
+  .typing-char-pending {
+    color: hsl(var(--typing-pending));
+  }
+  .typing-char-correct {
+    color: hsl(var(--typing-correct));
+    text-shadow: 0 0 8px hsl(var(--typing-correct) / 0.15);
+    transition: color 0.06s ease-out, text-shadow 0.15s ease-out;
+  }
+  .typing-char-incorrect {
+    color: hsl(var(--typing-incorrect));
+    text-decoration: underline;
+    text-decoration-color: hsl(var(--typing-incorrect) / 0.5);
+    text-underline-offset: 4px;
+    transition: color 0.06s ease-out;
+  }
+  .typing-cursor {
+    border-left: 2.5px solid hsl(var(--typing-cursor));
+  }
+  .glass-card {
+    @apply bg-card/60 backdrop-blur-md border border-border/50 rounded-xl;
+  }
+  .glow-primary {
+    box-shadow: 0 0 30px -5px hsl(var(--primary) / 0.15);
+  }
+}
